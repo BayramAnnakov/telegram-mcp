@@ -24,7 +24,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY main.py .
-# COPY session_string_generator.py . # Optional: if needed within the container, otherwise can be run outside
+COPY setup_wizard.py .
+COPY session_string_generator.py .
 
 # Create a non-root user and switch to it
 RUN adduser --disabled-password --gecos "" appuser && chown -R appuser:appuser /app
